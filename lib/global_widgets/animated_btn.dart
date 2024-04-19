@@ -2,16 +2,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
+//------------------------------------------------------------------------------
+// 애니메이션 버튼 위젯
+//------------------------------------------------------------------------------
 class AnimatedBtn extends StatelessWidget {
   const AnimatedBtn({
     Key? key,
     required RiveAnimationController btnAnimationController,
     required this.press,
+    required this.label,
   })  : _btnAnimationController = btnAnimationController,
         super(key: key);
 
   final RiveAnimationController _btnAnimationController;
   final VoidCallback press;
+  final String label;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +28,7 @@ class AnimatedBtn extends StatelessWidget {
         child: Stack(
           children: [
             RiveAnimation.asset(
-              "assets/RiveAssets/button.riv",
+              "assets/rive_assets/button.riv",
               controllers: [_btnAnimationController],
             ),
             Positioned.fill(
@@ -35,7 +40,7 @@ class AnimatedBtn extends StatelessWidget {
                   const Icon(CupertinoIcons.arrow_right),
                   const SizedBox(width: 8),
                   Text(
-                    "Start the course",
+                    label,
                     style: Theme.of(context).textTheme.labelLarge,
                   )
                 ],

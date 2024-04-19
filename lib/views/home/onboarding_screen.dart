@@ -1,13 +1,12 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:harmony_hub/constans/styles.dart';
-import 'package:harmony_hub/views/home/widgets/animated_btn.dart';
+import 'package:harmony_hub/global_widgets/animated_btn.dart';
 import 'package:rive/rive.dart';
 
 //------------------------------------------------------------------------------
 // 온보딩 스크린
 //------------------------------------------------------------------------------
-
 class OnbodingScreen extends StatefulWidget {
   const OnbodingScreen({super.key});
 
@@ -57,78 +56,85 @@ class _OnbodingScreenState extends State<OnbodingScreen> {
               child: const SizedBox(),
             ),
           ),
-          AnimatedPositioned(
-            top: isShowSignInDialog ? -50 : 0,
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            duration: const Duration(milliseconds: 260),
-            child: SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 32),
+          _contentWidget(),
+        ],
+      ),
+    );
+  }
+
+/* 본문 및 애니메이션 버튼 위젯 */
+  Widget _contentWidget() {
+    return AnimatedPositioned(
+      top: isShowSignInDialog ? -50 : 0,
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      duration: const Duration(milliseconds: 260),
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 32),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Spacer(),
+              const SizedBox(
+                width: 260,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Spacer(),
-                    const SizedBox(
-                      width: 260,
-                      child: Column(
+                    Text(
+                      "Learn musical instruments",
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: "Poppins",
+                        height: 1.2,
+                        color: gray000,
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    Text.rich(
+                      TextSpan(
                         children: [
-                          Text(
-                            "Learn musical instrument",
+                          TextSpan(
+                            text: 'Welcome to Harmony Hub!',
                             style: TextStyle(
-                              fontSize: 40,
+                              color: gray000,
                               fontWeight: FontWeight.w700,
-                              fontFamily: "Poppins",
-                              height: 1.2,
+                            ),
+                          ),
+                          TextSpan(
+                            text:
+                                '\nUnlock your musical potential with Music Maestro, the ultimate app for learning and mastering musical instruments. Whether you\'re a beginner or an experienced musician',
+                            style: TextStyle(
                               color: gray000,
                             ),
                           ),
-                          SizedBox(height: 16),
-                          Text.rich(
-                            TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: 'Welcome to Harmony Hub!',
-                                  style: TextStyle(
-                                    color: gray000,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text:
-                                      '\nUnlock your musical potential with Music Maestro, the ultimate app for learning and mastering musical instruments. Whether you\'re a beginner or an experienced musician',
-                                  style: TextStyle(
-                                    color: gray000,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )
                         ],
-                      ),
-                    ),
-                    const Spacer(flex: 2),
-                    AnimatedBtn(
-                      btnAnimationController: _btnAnimationController,
-                      press: () {
-                        _btnAnimationController.isActive = true;
-                      },
-                    ),
-                    const Center(
-                      child: Text(
-                        "Harmony Hub",
-                        style: TextStyle(
-                          color: value201,
-                          fontWeight: FontWeight.w700,
-                        ),
                       ),
                     )
                   ],
                 ),
               ),
-            ),
+              const Spacer(flex: 2),
+              AnimatedBtn(
+                btnAnimationController: _btnAnimationController,
+                press: () {
+                  _btnAnimationController.isActive = true;
+                },
+                label: 'Into The Harmony Hub',
+              ),
+              const Spacer(flex: 2),
+              const Center(
+                child: Text(
+                  "Harmony Hub",
+                  style: TextStyle(
+                    color: value201,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              )
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
