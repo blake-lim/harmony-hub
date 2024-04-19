@@ -28,14 +28,19 @@ class _SplashScreenState extends State<SplashScreen>
       ..addListener(() {
         setState(() {});
       })
-      ..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          Timer(const Duration(seconds: 2), () {
-            Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (_) => const OnbodingScreen()));
-          });
-        }
-      });
+      ..addStatusListener(
+        (status) {
+          if (status == AnimationStatus.completed) {
+            Timer(
+              const Duration(seconds: 2),
+              () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (_) => const OnbodingScreen()));
+              },
+            );
+          }
+        },
+      );
     controller!.forward();
   }
 

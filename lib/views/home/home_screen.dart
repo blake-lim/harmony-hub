@@ -1,85 +1,67 @@
 import 'package:flutter/material.dart';
+import 'package:harmony_hub/constans/styles.dart';
+import 'package:harmony_hub/views/home/components/genre_list.dart';
 import 'package:lottie/lottie.dart';
 
+//------------------------------------------------------------------------------
+// 홈스크린
+//------------------------------------------------------------------------------
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List<String> genres = [
-      'Rock',
-      'Pop',
-      'Jazz',
-      'Classical',
-      'Hip-Hop',
-      'Electronic',
-      'Folk',
-      'Blues'
+    final List<Map<String, String>> firstLineGenres = [
+      {'name': 'Rock', 'image': 'assets/images/rock.jpg'},
+      {'name': 'Hip-Hop', 'image': 'assets/images/hiphop.jpg'},
+      {'name': 'Pop', 'image': 'assets/images/pop.jpg'},
+      {'name': 'Electronic', 'image': 'assets/images/electronic.jpg'},
+    ];
+    final List<Map<String, String>> secondLineGenres = [
+      {'name': 'Folk', 'image': 'assets/images/folk.jpg'},
+      {'name': 'Blues', 'image': 'assets/images/blues.jpg'},
+      {'name': 'Jazz', 'image': 'assets/images/jazz.jpg'},
+      {'name': 'Classical', 'image': 'assets/images/classical.jpg'},
     ];
 
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            SizedBox(
-                width: 150,
-                height: 150,
-                child: Lottie.asset('assets/lotties/home.json')),
-            const SizedBox(height: 50),
-            SizedBox(
-              height: 180,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: genres.length,
-                itemBuilder: (context, index) {
-                  return GenreTile(genre: genres[index]);
-                },
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              /* 상단 바운스 위젯 */
+              _homeTopBounceWidget(),
+              /* 장르 리스트 위젯 */
+              GenreListSection(
+                title: 'Into the Intense World',
+                genres: firstLineGenres,
               ),
-            ),
-            const SizedBox(height: 20),
-            SizedBox(
-              height: 180,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: genres.length,
-                itemBuilder: (context, index) {
-                  return GenreTile(genre: genres[index]);
-                },
+              const SizedBox(height: 40),
+              GenreListSection(
+                title: 'Into the Relaxation',
+                genres: secondLineGenres,
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
 }
 
-class GenreTile extends StatelessWidget {
-  final String genre;
-
-  const GenreTile({super.key, required this.genre});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        print('Selected Genre: $genre');
-      },
-      child: Container(
-        width: 160,
-        height: 160,
-        margin: const EdgeInsets.symmetric(horizontal: 12),
-        decoration: BoxDecoration(
-          color: Colors.grey[200],
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Center(
-          child: Text(
-            genre,
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-        ),
+//------------------------------------------------------------------------------
+// 상단 바운스 애니메이션 위젯
+//------------------------------------------------------------------------------
+Widget _homeTopBounceWidget() {
+  return Center(
+    child: SizedBox(
+      width: 300,
+      height: 150,
+      child: Lottie.asset(
+        'assets/lotties/home_bounce.json',
       ),
-    );
-  }
+    ),
+  );
 }

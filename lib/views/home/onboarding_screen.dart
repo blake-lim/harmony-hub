@@ -1,7 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:harmony_hub/constans/styles.dart';
 import 'package:harmony_hub/global_widgets/animated_btn.dart';
+import 'package:harmony_hub/views/home/home_screen.dart';
 import 'package:rive/rive.dart';
 
 //------------------------------------------------------------------------------
@@ -56,6 +58,7 @@ class _OnbodingScreenState extends State<OnbodingScreen> {
               child: const SizedBox(),
             ),
           ),
+          /* 컨텐츠 위젯 */
           _contentWidget(),
         ],
       ),
@@ -119,6 +122,7 @@ class _OnbodingScreenState extends State<OnbodingScreen> {
                 btnAnimationController: _btnAnimationController,
                 press: () {
                   _btnAnimationController.isActive = true;
+                  Get.offAll(() => const HomeScreen());
                 },
                 label: 'Into The Harmony Hub',
               ),
