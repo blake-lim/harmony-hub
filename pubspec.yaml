@@ -16,7 +16,7 @@ dependencies:
   get: ^4.6.6
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.9
-
+  lottie: 
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -28,6 +28,8 @@ flutter:
 
   assets:
   - assets/svgs/
+  - assets/lotties/
+  - assets/images/
   fonts:
     - family: Pretendard
       fonts:
