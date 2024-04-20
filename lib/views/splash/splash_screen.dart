@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:harmony_hub/services/resource_manager.dart';
 import '../home/onboarding_screen.dart';
 
 //------------------------------------------------------------------------------
@@ -31,13 +33,8 @@ class _SplashScreenState extends State<SplashScreen>
       ..addStatusListener(
         (status) {
           if (status == AnimationStatus.completed) {
-            Timer(
-              const Duration(seconds: 2),
-              () {
-                Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (_) => const OnbodingScreen()));
-              },
-            );
+            Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (_) => const OnbodingScreen()));
           }
         },
       );
