@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:harmony_hub/services/resource_manager.dart';
+import 'package:video_player/video_player.dart';
 
 //------------------------------------------------------------------------------
 // 공통적으로 사용하는 뷰모델
