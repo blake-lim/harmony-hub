@@ -18,7 +18,9 @@ dependencies:
   flutter_svg: ^2.0.9
   lottie: 
   rive: 
-
+  video_player:
+  audioplayers:
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -33,6 +35,11 @@ flutter:
   - assets/lotties/
   - assets/rive_assets/
   - assets/images/
+  - assets/videos/
+  - assets/videos/drum.mp4
+  - assets/videos/piano.mp4
+  - assets/videos/vocal.mp4
+  - assets/videos/guitar.mp4
   fonts:
     - family: Pretendard
       fonts:
