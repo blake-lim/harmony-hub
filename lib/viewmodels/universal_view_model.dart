@@ -7,12 +7,15 @@ import 'package:harmony_hub/services/resource_manager.dart';
 //------------------------------------------------------------------------------
 class UniversalViewModel extends GetxController {
   var selectedInstrument = Rxn<String>();
+  var isButtonEnabled = false.obs;
 
   void selectInstrument(String instrumentName) {
     if (selectedInstrument.value == instrumentName) {
       selectedInstrument.value = null;
+      isButtonEnabled.value = false;
     } else {
       selectedInstrument.value = instrumentName;
+      isButtonEnabled.value = true;
     }
   }
 

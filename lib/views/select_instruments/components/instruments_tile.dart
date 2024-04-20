@@ -24,12 +24,12 @@ class InstrumentTile extends StatelessWidget {
           onTap: () => viewModel.selectInstrument(name),
           child: GridTile(
             footer: GridTileBar(
-              backgroundColor: Colors.black45,
+              backgroundColor: gray999,
               title: Center(
                 child: Text(
                   name,
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: gray000,
                     fontSize: 16.0,
                     fontWeight: FontWeight.bold,
                   ),

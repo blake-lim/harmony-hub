@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:harmony_hub/global_widgets/global_app_bar.dart';
+import 'package:harmony_hub/widgets/global_app_bar.dart';
 import 'package:harmony_hub/services/resource_manager.dart';
 import 'package:harmony_hub/viewmodels/universal_view_model.dart';
 import 'package:harmony_hub/views/home/components/genre_list.dart';

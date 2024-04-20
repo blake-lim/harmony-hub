@@ -37,7 +37,7 @@ class GlobalConfirmButton extends StatelessWidget {
           onTap: onPressed,
           child: Container(
             decoration: BoxDecoration(
-              color: isEnabled ? gray999 : gray100,
+              color: isEnabled ? value000 : gray000,
               borderRadius: BorderRadius.circular(50),
             ),
             padding: const EdgeInsets.symmetric(vertical: 15.0),
