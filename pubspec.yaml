@@ -19,7 +19,8 @@ dependencies:
   lottie: 
   rive: 
   video_player:
-
+  audioplayers:
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
