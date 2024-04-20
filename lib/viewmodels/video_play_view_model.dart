@@ -1,25 +1,25 @@
 import 'package:get/get.dart';
+import 'package:harmony_hub/services/resource_manager.dart';
 import 'package:video_player/video_player.dart';
 
 //------------------------------------------------------------------------------
 // 연주 비디오 플레이어 뷰모델
 //------------------------------------------------------------------------------
 class VideoPlayerControllerX extends GetxController {
-  late VideoPlayerController controller;
-  final String videoAssetPath;
-
-  VideoPlayerControllerX(this.videoAssetPath);
+  List<VideoPlayerController> videoControllers = [];
 
   @override
   void onInit() {
     super.onInit();
-    controller = VideoPlayerController.asset(videoAssetPath)
-      ..initialize().then((_) {
-        update();
-      });
+    for (var videoPath in ResourceManager.videos) {
+      VideoPlayerController controller = VideoPlayerController.asset(videoPath)
+        ..initialize().then((_) => update());
+      videoControllers.add(controller);
+    }
   }
 
-  void togglePlayPause() {
+  void togglePlayPause(int index) {
+    var controller = videoControllers[index];
     if (controller.value.isPlaying) {
       controller.pause();
     } else {
@@ -30,7 +30,9 @@ class VideoPlayerControllerX extends GetxController {
 
   @override
   void onClose() {
-    controller.dispose();
+    for (var controller in videoControllers) {
+      controller.dispose();
+    }
     super.onClose();
   }
 }
