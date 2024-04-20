@@ -49,12 +49,6 @@ class ResourceManager {
     {'name': 'Piano', 'image': 'assets/images/piano.jpg'},
     {'name': 'Vocal', 'image': 'assets/images/vocal.jpg'}
   ];
-  static final List<String> videos = [
-    'assets/videos/drum.mp4',
-    'assets/videos/guitar.mp4',
-    'assets/videos/piano.mp4',
-    'assets/videos/vocal.mp4',
-  ];
 
   static final List<Map<String, String>> songList = [
     {

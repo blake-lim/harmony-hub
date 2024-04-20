@@ -1,19 +1,29 @@
 import 'package:get/get.dart';
-import 'package:harmony_hub/services/resource_manager.dart';
 import 'package:video_player/video_player.dart';
 
 //------------------------------------------------------------------------------
-// 연주 비디오 플레이어 뷰모델
+// 비디오 플레이어 뷰모델
 //------------------------------------------------------------------------------
 class VideoPlayerControllerX extends GetxController {
-  List<VideoPlayerController> videoControllers = [];
+  RxList<VideoPlayerController> videoControllers =
+      RxList<VideoPlayerController>();
+  final List<String> videoAssetPaths;
+
+  VideoPlayerControllerX(this.videoAssetPaths);
 
   @override
   void onInit() {
     super.onInit();
-    for (var videoPath in ResourceManager.videos) {
-      VideoPlayerController controller = VideoPlayerController.asset(videoPath)
-        ..initialize().then((_) => update());
+    _initializeVideos();
+  }
+
+  void _initializeVideos() {
+    for (var path in videoAssetPaths) {
+      VideoPlayerController controller = VideoPlayerController.asset(path);
+      controller.initialize().then((_) {
+        controller.play();
+        update();
+      });
       videoControllers.add(controller);
     }
   }

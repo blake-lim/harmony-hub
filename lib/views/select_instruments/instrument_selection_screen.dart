@@ -33,6 +33,7 @@ class InstrumentSelectionScreen extends StatelessWidget {
               buttonText:
                   viewModel.isButtonEnabled.value ? '선택 완료' : '악기를 선택해주세요',
               isEnabled: viewModel.isButtonEnabled.value,
+              onPressed: viewModel.navigateToPlayScreen,
             ),
           ),
         ],

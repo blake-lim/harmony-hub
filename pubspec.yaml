@@ -35,6 +35,10 @@ flutter:
   - assets/rive_assets/
   - assets/images/
   - assets/videos/
+  - assets/videos/drum.mp4
+  - assets/videos/piano.mp4
+  - assets/videos/vocal.mp4
+  - assets/videos/guitar.mp4
   fonts:
     - family: Pretendard
       fonts:
