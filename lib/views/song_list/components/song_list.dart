@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:harmony_hub/constans/styles.dart';
+import 'package:harmony_hub/views/song_list/instrument_selection_screen.dart';
 
 //------------------------------------------------------------------------------
 // 음악 목록 노출 위젯
@@ -34,6 +36,11 @@ class SongListWidget extends StatelessWidget {
               genreSongs[index]['artist']!,
               style: const TextStyle(color: gray000),
             ),
+            onTap: () {
+              Get.to(() => InstrumentSelectionScreen(
+                    songTitle: genreSongs[index]['title']!,
+                  ));
+            },
           );
         },
       ),
