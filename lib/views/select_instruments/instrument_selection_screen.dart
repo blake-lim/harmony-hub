@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:harmony_hub/global_widgets/global_app_bar.dart';
 
+//------------------------------------------------------------------------------
+// 악기 선택 스크린
+//------------------------------------------------------------------------------
 class InstrumentSelectionScreen extends StatelessWidget {
   final String songTitle;
 

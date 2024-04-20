@@ -24,6 +24,10 @@ class ResourceManager {
     'singer8': 'assets/images/singer8.jpg',
     'singer9': 'assets/images/singer9.jpg',
     'singer10': 'assets/images/singer10.jpg',
+    'drum': 'assets/images/drum.jpg',
+    'guitar': 'assets/images/guitar.jpg',
+    'piano': 'assets/images/piano.jpg',
+    'vocal': 'assets/images/vocal.jpg',
   };
   static final List<Map<String, String>> firstLineGenres = [
     {'name': 'Rock', 'image': 'assets/images/rock.jpg'},
@@ -37,6 +41,13 @@ class ResourceManager {
     {'name': 'Blues', 'image': 'assets/images/blues.jpg'},
     {'name': 'Jazz', 'image': 'assets/images/jazz.jpg'},
     {'name': 'Classical', 'image': 'assets/images/classical.jpg'},
+  ];
+
+  static final List<Map<String, String>> instruments = [
+    {'name': 'Drum', 'image': 'assets/images/drum.jpg'},
+    {'name': 'Guitar', 'image': 'assets/images/guitar.jpg'},
+    {'name': 'Piano', 'image': 'assets/images/piano.jpg'},
+    {'name': 'Vocal', 'image': 'assets/images/vocal.jpg'}
   ];
 
   static final List<Map<String, String>> songList = [
