@@ -17,9 +17,14 @@ class GenreListSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    for (var genre in genres) {
+      precacheImage(AssetImage(genre['image']!), context);
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        const SizedBox(height: 40),
         Text(
           title,
           style: const TextStyle(
@@ -42,7 +47,6 @@ class GenreListSection extends StatelessWidget {
             },
           ),
         ),
-        // const SizedBox(height: 40.0),
       ],
     );
   }

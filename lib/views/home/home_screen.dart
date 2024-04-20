@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:harmony_hub/constans/styles.dart';
+import 'package:harmony_hub/global_widgets/global_app_bar.dart';
 import 'package:harmony_hub/views/home/components/genre_list.dart';
 import 'package:lottie/lottie.dart';
 
@@ -25,6 +25,7 @@ class HomeScreen extends StatelessWidget {
     ];
 
     return Scaffold(
+      appBar: const GlobalAppBar(),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -38,7 +39,6 @@ class HomeScreen extends StatelessWidget {
                 title: 'Into the Intense World',
                 genres: firstLineGenres,
               ),
-              const SizedBox(height: 40),
               GenreListSection(
                 title: 'Into the Relaxation',
                 genres: secondLineGenres,
@@ -56,12 +56,10 @@ class HomeScreen extends StatelessWidget {
 //------------------------------------------------------------------------------
 Widget _homeTopBounceWidget() {
   return Center(
-    child: SizedBox(
+    child: Lottie.asset(
       width: 300,
-      height: 150,
-      child: Lottie.asset(
-        'assets/lotties/home_bounce.json',
-      ),
+      height: 100,
+      'assets/lotties/home_bounce.json',
     ),
   );
 }
