@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:harmony_hub/constans/styles.dart';
-import 'package:harmony_hub/views/song_list/instrument_selection_screen.dart';
+import 'package:harmony_hub/views/select_instruments/instrument_selection_screen.dart';
 
 //------------------------------------------------------------------------------
 // 음악 목록 노출 위젯
