@@ -22,6 +22,7 @@ class VideoPlayerControllerX extends GetxController {
       VideoPlayerController controller = VideoPlayerController.asset(path);
       controller.initialize().then((_) {
         controller.play();
+        controller.setLooping(true);
         update();
       });
       videoControllers.add(controller);
