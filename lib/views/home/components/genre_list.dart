@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:harmony_hub/constans/styles.dart';
-import 'package:harmony_hub/views/home/components/genre_unit.dart';
+import 'package:harmony_hub/views/home/components/genre_tile.dart';
 
 //------------------------------------------------------------------------------
 // 장르 리스트 위젯

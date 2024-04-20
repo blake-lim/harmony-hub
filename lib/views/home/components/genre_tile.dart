@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:harmony_hub/constans/styles.dart';
+import 'package:harmony_hub/views/song_list/select_song_screen.dart';
 
 //------------------------------------------------------------------------------
 // 장르 리스트 아이템 위젯
@@ -19,7 +21,9 @@ class GenreTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 8.0),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Get.to(() => MusicSelectionScreen(genre: genre));
+        },
         child: Container(
           width: 160,
           height: 160,
