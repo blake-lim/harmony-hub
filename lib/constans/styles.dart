@@ -24,6 +24,8 @@ const Color gray200 = Color(0xFFE9E9E9);
 const Color gray100 = Color(0xFFF8F8F8);
 const Color gray000 = Color(0xFFFFFFFF);
 
+const Color orange000 = Color(0xFFFF9800);
+
 const Color system000 = Color(0xFFFF0000);
 const Color system100 = Color(0xFF0A84FF);
 

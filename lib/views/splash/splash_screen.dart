@@ -1,10 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
-
-import '../home/home_screen.dart';
+import '../home/onboarding_screen.dart';
 
 //------------------------------------------------------------------------------
 // 스플래시 스크린
@@ -32,14 +28,19 @@ class _SplashScreenState extends State<SplashScreen>
       ..addListener(() {
         setState(() {});
       })
-      ..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          Timer(const Duration(seconds: 2), () {
-            Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (_) => const HomeScreen()));
-          });
-        }
-      });
+      ..addStatusListener(
+        (status) {
+          if (status == AnimationStatus.completed) {
+            Timer(
+              const Duration(seconds: 2),
+              () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (_) => const OnbodingScreen()));
+              },
+            );
+          }
+        },
+      );
     controller!.forward();
   }
 
