@@ -18,7 +18,7 @@ const Color surface300 = Color(0xFFFFF0C9);
 
 const Color gray999 = Color(0xFF000000);
 const Color gray500 = Color(0xFFB8B8B8);
-const Color gray400 = Color(0xFF8C8993);
+const Color gray400 = Color.fromARGB(255, 150, 142, 166);
 const Color gray300 = Color.fromARGB(255, 17, 16, 21);
 const Color gray200 = Color(0xFFE9E9E9);
 const Color gray100 = Color(0xFFF8F8F8);

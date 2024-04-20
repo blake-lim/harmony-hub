@@ -22,7 +22,8 @@ class GenreTile extends StatelessWidget {
       padding: const EdgeInsets.only(right: 8.0),
       child: GestureDetector(
         onTap: () {
-          Get.to(() => MusicSelectionScreen(genre: genre));
+          Get.to(
+              () => MusicSelectionScreen(genre: genre, imagePath: imagePath));
         },
         child: Container(
           width: 160,

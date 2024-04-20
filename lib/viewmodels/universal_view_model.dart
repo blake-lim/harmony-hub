@@ -21,6 +21,74 @@ class UniversalViewModel extends GetxController {
     {'name': 'Classical', 'image': 'assets/images/classical.jpg'},
   ].obs;
 
+  /* 노래 목록을 관리하는 RxList */
+  final RxList<Map<String, String>> songList = <Map<String, String>>[
+    {
+      'title': 'Stairway to Heaven',
+      'artist': 'Led Zeppelin',
+      'genre': 'Rock',
+      'image': 'assets/images/singer1.jpg'
+    },
+    {
+      'title': 'Bohemian Rhapsody',
+      'artist': 'Queen',
+      'genre': 'Rock',
+      'image': 'assets/images/singer2.jpg'
+    },
+    {
+      'title': 'Hotel California',
+      'artist': 'Eagles',
+      'genre': 'Rock',
+      'image': 'assets/images/singer3.jpg'
+    },
+    {
+      'title': 'Sweet Child O\' Mine',
+      'artist': 'Guns N\' Roses',
+      'genre': 'Rock',
+      'image': 'assets/images/singer4.jpg'
+    },
+    {
+      'title': 'Smoke on the Water',
+      'artist': 'Deep Purple',
+      'genre': 'Rock',
+      'image': 'assets/images/singer5.jpg'
+    },
+    {
+      'title': 'Born to Run',
+      'artist': 'Bruce Springsteen',
+      'genre': 'Rock',
+      'image': 'assets/images/singer6.jpg'
+    },
+    {
+      'title': 'Back In Black',
+      'artist': 'AC/DC',
+      'genre': 'Rock',
+      'image': 'assets/images/singer7.jpg'
+    },
+    {
+      'title': 'Dream On',
+      'artist': 'Aerosmith',
+      'genre': 'Rock',
+      'image': 'assets/images/singer8.jpg'
+    },
+    {
+      'title': 'Another Brick in the Wall, Part 2',
+      'artist': 'Pink Floyd',
+      'genre': 'Rock',
+      'image': 'assets/images/singer9.jpg'
+    },
+    {
+      'title': 'You Shook Me All Night Long',
+      'artist': 'AC/DC',
+      'genre': 'Rock',
+      'image': 'assets/images/singer10.jpg'
+    }
+  ].obs;
+
+  List<Map<String, String>> getSongsByGenre(String genre) {
+    return songList.where((song) => song['genre'] == genre).toList();
+  }
+
 /* 이미지 로드 메서드 */
   void loadImages() {
     for (var genre in firstLineGenres) {
