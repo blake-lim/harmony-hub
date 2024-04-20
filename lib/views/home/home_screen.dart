@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:harmony_hub/global_widgets/global_app_bar.dart';
+import 'package:harmony_hub/services/resource_manager.dart';
 import 'package:harmony_hub/viewmodels/universal_view_model.dart';
 import 'package:harmony_hub/views/home/components/genre_list.dart';
 import 'package:lottie/lottie.dart';
@@ -13,8 +14,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final UniversalViewModel viewModel = Get.put(UniversalViewModel());
-
     return Scaffold(
       appBar: const GlobalAppBar(),
       body: SafeArea(
@@ -28,11 +27,11 @@ class HomeScreen extends StatelessWidget {
               /* 장르 리스트 위젯 */
               GenreListSection(
                 title: 'Into the Intense World',
-                genres: viewModel.firstLineGenres,
+                genres: ResourceManager.firstLineGenres,
               ),
               GenreListSection(
                 title: 'Into the Relaxation',
-                genres: viewModel.secondLineGenres,
+                genres: ResourceManager.secondLineGenres,
               ),
             ],
           ),

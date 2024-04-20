@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:harmony_hub/constans/styles.dart';
 import 'package:get/get.dart';
 import 'package:harmony_hub/viewmodels/universal_view_model.dart';
+import 'package:harmony_hub/views/song_list/components/song_list.dart';
 
+//------------------------------------------------------------------------------
+// 음악 선택 스크린
+//------------------------------------------------------------------------------
 class MusicSelectionScreen extends StatelessWidget {
   final String genre;
   final String imagePath;
@@ -24,35 +28,16 @@ class MusicSelectionScreen extends StatelessWidget {
         child: Column(
           children: [
             _selectedGenreWidget(),
-            Expanded(
-              child: ListView.builder(
-                itemCount: genreSongs.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: CircleAvatar(
-                      backgroundImage:
-                          AssetImage(genreSongs[index]['image']!), // 사용 이미지
-                      radius: 25, // 이미지 크기
-                    ),
-                    title: Text(
-                      genreSongs[index]['title']!,
-                      style: const TextStyle(
-                          color: gray000, fontWeight: FontWeight.bold),
-                    ),
-                    subtitle: Text(
-                      genreSongs[index]['artist']!,
-                      style: const TextStyle(color: gray000),
-                    ),
-                  );
-                },
-              ),
-            ),
+            SongListWidget(genreSongs: genreSongs),
           ],
         ),
       ),
     );
   }
 
+//------------------------------------------------------------------------------
+// 이전 스크린에서 선택한 장르 노출 위젯
+//------------------------------------------------------------------------------
   Widget _selectedGenreWidget() {
     return Column(
       children: [
