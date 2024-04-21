@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:harmony_hub/constans/styles.dart';
 
+//------------------------------------------------------------------------------
+// 전역으로 사용되는 AppBar 위젯
+//------------------------------------------------------------------------------
 class GlobalAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   final Size preferredSize;

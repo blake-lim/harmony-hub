@@ -20,7 +20,7 @@ dependencies:
   rive: 
   video_player:
   audioplayers:
-  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -40,6 +40,7 @@ flutter:
   - assets/videos/piano.mp4
   - assets/videos/vocal.mp4
   - assets/videos/guitar.mp4
+  - assets/audio/piano/
   fonts:
     - family: Pretendard
       fonts:
