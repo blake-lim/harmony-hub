@@ -1,6 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:harmony_hub/constans/styles.dart';
+import 'package:harmony_hub/services/resource_manager.dart';
+import 'package:harmony_hub/viewmodels/video_play_view_model.dart';
+import 'package:harmony_hub/views/splash/splash_screen.dart';
+import 'package:harmony_hub/viewmodels/universal_view_model.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  List<String> videoPaths = [
+    'assets/videos/drum.mp4',
+    'assets/videos/guitar.mp4',
+    'assets/videos/piano.mp4',
+    'assets/videos/vocal.mp4',
+  ];
+  Get.put(UniversalViewModel());
+  Get.put(VideoPlayerControllerX(videoPaths));
   runApp(const MyApp());
 }
 
@@ -9,61 +24,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
+    ResourceManager.preloadImages(context);
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+    return GetMaterialApp(
+      theme:
+          ThemeData(fontFamily: 'Pretendard', scaffoldBackgroundColor: gray999),
+      debugShowCheckedModeBanner: false,
+      home: const SplashScreen(),
     );
   }
 }
