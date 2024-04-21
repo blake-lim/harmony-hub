@@ -21,13 +21,16 @@ class VideoPlayerWidget extends StatelessWidget {
         return const Center(child: CircularProgressIndicator());
       }
 
-      return GestureDetector(
-        onTap: () => controller.togglePlayPause(index),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: AspectRatio(
-            aspectRatio: controller.videoControllers[index].value.aspectRatio,
-            child: VideoPlayer(controller.videoControllers[index]),
+      return SizedBox(
+        height: 250,
+        child: GestureDetector(
+          onTap: () => controller.togglePlayPause(index),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: AspectRatio(
+              aspectRatio: controller.videoControllers[index].value.aspectRatio,
+              child: VideoPlayer(controller.videoControllers[index]),
+            ),
           ),
         ),
       );

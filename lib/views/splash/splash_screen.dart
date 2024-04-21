@@ -1,7 +1,4 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:harmony_hub/services/resource_manager.dart';
 import '../home/onboarding_screen.dart';
 
 //------------------------------------------------------------------------------

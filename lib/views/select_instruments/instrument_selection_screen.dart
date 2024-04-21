@@ -6,7 +6,7 @@ import 'package:harmony_hub/widgets/global_app_bar.dart';
 import 'package:harmony_hub/services/resource_manager.dart';
 import 'package:harmony_hub/views/select_instruments/components/instruments_tile.dart';
 import 'package:harmony_hub/widgets/global_btn.dart';
-import 'package:rive/rive.dart';
+import 'package:harmony_hub/widgets/rive_wave_widget.dart';
 
 //------------------------------------------------------------------------------
 // 악기 선택 스크린
@@ -27,7 +27,7 @@ class InstrumentSelectionScreen extends StatelessWidget {
         children: [
           _guideTextWidget(),
           _instrumentsListWidget(),
-          _riveAnimationWidget(),
+          const RiveWaveWidget(),
           Obx(
             () => GlobalConfirmButton(
               buttonText:
@@ -74,17 +74,6 @@ Widget _instrumentsListWidget() {
           imagePath: ResourceManager.instruments[index]['image']!,
         );
       },
-    ),
-  );
-}
-
-/* 하단 웨이브 애니메이션 위젯 */
-Widget _riveAnimationWidget() {
-  return const SizedBox(
-    height: 100,
-    child: RiveAnimation.asset(
-      'assets/rive_assets/soundwave.riv',
-      fit: BoxFit.contain,
     ),
   );
 }
